@@ -134,6 +134,7 @@
             width: 58px;
             border-radius: 50%;
             position: relative;
+            margin-right: 10px;
             img {
                 @include transition (.3s);
                 transform: scale(1);
@@ -266,6 +267,15 @@
             &__icon {
                 height: 45px;
                 width: 45px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 450px) {
+        &__user {
+            &__details {
+                font-size: 14px;
+                line-height: 18px;
             }
         }
     }
