@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// Gray colors
+$white: #FFF !default;
+$black: #000 !default;
+$black-light: #212121;
+
+// Colors
+$color-text: $black;
+
+$mint: #aff4d5;
+
+$grey-light: #e3e3e3;
+$grey-dark: #666666;
+
+$orange: #fe6f3b;
+$green: #57bb72;
+$red: #d04b2b;
+$yellow: #ffc93d;
+
+$tick-grey-light: #fafafa;
+$tick-grey-dark: #e3e3e3;
+
+$user-grey-hover: #fbfbfb;
+ 
+// Fonts
+// $fontFamily-oswald: 'Oswald', sans-serif !default;
+$fontFamily-oswald: 'Roboto', 'Arial', 'Helvetica', sans-serif !default;
+$fontFamily-roboto: 'Roboto', 'Arial', 'Helvetica', sans-serif !default;

@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+@mixin transition($duration) {
+    -webkit-transition: $duration;
+    -moz-transition: $duration;
+    -ms-transition: $duration;
+    -o-transition: $duration;
+    transition: $duration;
+}
+
+/*
+ *
+ * @param {px value}	$sizeValue		The value we want to convert from px to rem
+ *
+ * font-size: rem-calc(18);
+ */
+
+@function rem-calc($sizeValue: 1.6) {
+    @return ($sizeValue / 16) * 1rem;
+}

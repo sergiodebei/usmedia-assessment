@@ -1,0 +1,161 @@
+header{
+    width: 100%;
+    padding: 0 20px;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 10;
+    position: fixed;
+    // opacity: 0;
+    @include transition (.3s);
+    border-bottom: 2px solid $grey-light;
+    .header {
+        &__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 10rem;
+        }
+        &__logo{
+            z-index: 2;
+            display: flex;
+            img, svg{
+                height: 45px;
+            }
+            #logo__text {
+                margin-left: 10px;
+            }
+            &:hover{
+                #logo__icon {
+                    animation: spinner 0.8s linear infinite;
+                    // animation: bounce 0.3s;
+                    // animation-direction: alternate;
+                    // animation-iteration-count: infinite;
+                }
+            }
+            @media only screen and (max-width: 550px) {
+                #logo__text{
+                    display: none;
+                }
+            }
+        }
+        &__controllers {
+            display: flex;
+            padding-left: 20px;
+        }
+        &__nav{
+            box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+            position: fixed;
+            // width: 200px;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            right: 0;
+            padding: 10rem 0 0;
+            z-index: 1;
+            background-color: white;
+            transform-origin: 0% 0%;
+            transform: translate(100%, 0);
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            &__menu, &__language-toggle{
+                display: flex;
+                justify-content: flex-end; 
+                text-transform: uppercase; 
+                margin: 0;
+                padding: 0;
+                li{
+                    padding: 10px 0;
+                    display: inline-block;
+                    @include transition (.3s);
+                    a{
+                        font-size: 14px;
+                        padding: 10px;
+                        color: $grey-dark;
+                        font-weight: 500;
+                        @include transition (.3s);
+                    }
+                    &.active, &:hover, &:focus{
+                        a{
+                            color: $grey-light;
+                        }
+                    }
+                }
+            }
+            &__menu {
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                height: 100%;
+                li{
+                    padding-right: 20px;
+                    &:last-child{
+                        padding-right: 20px; 
+                    }
+                    a{
+                        font-size: 16px;
+                    }
+                }
+            }
+            &__language-toggle {
+                margin-left: 0;
+                padding: 0 20px 10px 0;
+                li{
+                    padding-right: 0;
+                    &:first-child{
+                        padding-right: 0;
+                        // a{
+                        //     padding-right: 0; 
+                        // }
+                    }
+                    &:last-child{
+                        padding-left: 0; 
+                        // a{
+                        //     padding-left: 0;
+                        // }
+                    }
+                    a{
+                        font-weight: 300;
+                        &.not-active {
+                            font-weight: 500;
+                            pointer-events: none;
+                            cursor: default;
+                            color: $grey-dark;
+                        }
+                    }
+                }
+            }
+            &__user {
+                display: flex;
+                align-items: center;
+                color: $grey-dark;
+                &__image {
+                    height: 45px;
+                    width: 45px;
+                    position: relative;
+                    overflow: hidden;
+                    border-radius: 50%;
+                }
+                &__name {
+                    margin-left: 20px;
+                }
+            }
+            &.nav--open{
+                transform: translate(0%, 0);
+            }
+        }
+    }
+    @media only screen and (max-width: 1000px) {
+        padding: 0px;
+    }
+    @media only screen and (max-width: 550px) {
+        // .header__inner {
+        //     justify-content: initial;
+        // }
+        .header__nav__user__name {
+            margin-left: 10px;
+        }
+    }
+}
+
+

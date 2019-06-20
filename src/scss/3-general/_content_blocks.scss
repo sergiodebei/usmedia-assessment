@@ -1,0 +1,9 @@
+.cb {
+    margin-top: 4rem !important;
+    max-width: 405px;
+    margin: 0 auto;
+    @media only screen and (max-width: 550px) {
+        margin: 0 2rem;
+        max-width: unset;
+	}
+}

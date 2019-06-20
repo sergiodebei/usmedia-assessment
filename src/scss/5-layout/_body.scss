@@ -1,0 +1,17 @@
+body {
+    background-color: $white;
+    main{
+        padding-top: 10rem;
+    }
+
+    &.page__scrolling {
+        .title{
+            @include transition (.3s);
+            opacity: 1;
+            &--fadeout {
+                // display: none;
+                opacity: 0;
+            }
+        }
+    }
+}

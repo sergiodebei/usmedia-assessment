@@ -1,0 +1,44 @@
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: $white;
+    display: none;
+    &__container {
+        position: relative;
+        display: none;
+        &:after {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid $grey_light;
+            // width: 100px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: stretch 0.3s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+        
+    }
+    &__image{
+        // animation: spinner .6s linear infinite;
+        animation: bounce 0.3s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        height: 50px;
+        width: 50px;
+    }
+    &--visible{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .loader {
+            &__container {
+                display: block;
+            }
+        }
+    }
+}

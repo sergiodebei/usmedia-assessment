@@ -1,0 +1,38 @@
+// -----------------------------------------------------------------------------
+// This file contains keyframes for css animations
+// -----------------------------------------------------------------------------
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}  
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@-webkit-keyframes fadeOut {
+    from { opacity: 1; }
+      to { opacity: 0.4; }
+}  
+@keyframes fadeIn {
+    from { opacity: 1; }
+      to { opacity: 0.4; }
+}
+
+//spinner
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+
+//bounce
+@keyframes bounce {
+  from { transform: translate3d(0, 0px, 0); }
+  to   { transform: translate3d(0, -40px, 0) rotate(0deg); }
+}
+
+//stretch
+@keyframes stretch {
+  from { width: 10px;   }
+  to   { width: 30px; }
+}
