@@ -15,9 +15,9 @@ $(document).on("ready", function () {
     });
 
     // Toggle sheet function
-    var sheet = $(".sheet__container");
-    sheet.on('click', function() {
-        $(this).toggleClass('sheet__container--open');
+    var sheet__header = $(".sheet__header");
+    sheet__header.on('click', function() {
+        $(this).parent().toggleClass('sheet__container--open');
     });
 
     // Parse json file to create list of users in the sheet
