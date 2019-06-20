@@ -1,10 +1,14 @@
 $(document).on("ready", function () {
 
+    function closePopup(){
+        $('.popup').fadeOut(350);
+    }
+
     // Toggle hamburger menu function
     var menu = $(".hamburger-menu");
 	menu.on('click', function() {
         $(this).toggleClass('hamburger-menu--open');
-        $('.popup').fadeOut(350);
+        closePopup();
         $('nav').toggleClass('nav--open');
 	});
 
@@ -21,7 +25,7 @@ $(document).on("ready", function () {
         $(this).parent().toggleClass('sheet__container--open');
     });
 
-    // Click on user function
+    // Click on user function that activates the popup
     $('body').on('click', '.sheet__user__icon', function (e) {
         e.stopPropagation();
         var parent = $(this).parent();
@@ -44,11 +48,21 @@ $(document).on("ready", function () {
 
     });
 
+    // Click to close popup
     $('.popup__close').on('click', function(e) {
-        $('.popup').fadeOut(350);
+        closePopup();
 		e.preventDefault();
-	});
+    });
+    
+    // Click outside popup inner part
+    var popup__inner = $(".popup__inner");
+    $(document).mouseup(function(e){
+        if(!popup__inner.is(e.target) && popup__inner.has(e.target).length === 0){
+            closePopup();
+        }
+    });
 
+    // Update counter function
     function updateCounter(){
         var counter_people = $('.sheet__user').length;
         var counter_people_present = $('.sheet__user--present').length;
@@ -62,7 +76,6 @@ $(document).on("ready", function () {
         $(this).toggleClass('sheet__user--present');
         updateCounter();
     });
-
 
     // Parse json file to create list of users in the sheet
     var sheet__users = $('#sheet__users');
@@ -127,6 +140,7 @@ $(document).on("ready", function () {
         displayIntro();
     }
 
+    // Function to display the loader only once based on a cookie
     function displayIntro() {
 
         var cookie = getCookie('showintro');
@@ -157,6 +171,7 @@ $(document).on("ready", function () {
 
     }
 
+    // Set cookie function
     function setCookie(name, value, days) {
         if (days) {
             var date = new Date();
@@ -166,6 +181,7 @@ $(document).on("ready", function () {
         document.cookie = name + "=" + value + expires + "; path=/";
     }
 
+    // Get cookie function
     function getCookie(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
