@@ -82,5 +82,14 @@
             max-width: unset;
             transform: translate(0%,-50%);
         }
+        &__user {
+            &__name {
+                font-size: 20px;
+                line-height: 20px;
+            }
+            &__age {
+                font-size: 14px;
+            }
+        }
     }
 }

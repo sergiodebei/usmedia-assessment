@@ -246,6 +246,8 @@
             padding: 10px;
             flex-direction: column;
             align-items: flex-start;
+            line-height: 20px;
+            font-size: 15px;
             &__date {
                 &__icon {
                     svg{
@@ -257,6 +259,9 @@
         }
         &__user {
             padding: 10px;
+            &__details {
+                margin-left: 10px;
+            }
             &__tick {
                 width: 45px;
                 height: 45px;
