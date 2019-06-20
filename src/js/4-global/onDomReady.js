@@ -44,7 +44,9 @@ $(document).on("ready", function () {
 
         $('.popup').find('.popup__user__name').html(user_completename);
         $('.popup').find('.popup__user__age__value').html(popup_user.age);
-        $('.popup').fadeIn(350);
+        setTimeout(function() {
+            $('.popup').fadeIn(350);
+        }, 50);
 
     });
 
