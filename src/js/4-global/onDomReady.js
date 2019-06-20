@@ -20,6 +20,12 @@ $(document).on("ready", function () {
         $(this).parent().toggleClass('sheet__container--open');
     });
 
+    // Click on user function
+    $('body').on('click', '.sheet__user__icon', function (e) {
+        e.stopPropagation();
+        console.log("user click");
+    });
+
     function updateCounter(){
         var counter_people = $('.sheet__user').length;
         var counter_people_present = $('.sheet__user--present').length;
@@ -29,17 +35,17 @@ $(document).on("ready", function () {
     }
 
     // Toggle sheet user function
-    var sheet__user = $(".sheet__user");
-    sheet__user.on('click', function() {
-        console.log('click');
+    $('body').on('click', '.sheet__user', function () {
+        console.log("sheet click");
         $(this).toggleClass('sheet__user--present');
         updateCounter();
     });
 
+
     // Parse json file to create list of users in the sheet
     var sheet__users = $('#sheet__users');
     $.getJSON('./data/data.json', function (data) {
-        console.log(data, data.length);
+        // console.log(data, data.length);
         sheet__users.empty();
 
         if(data.length) {
