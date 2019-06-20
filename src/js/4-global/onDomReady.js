@@ -4,6 +4,7 @@ $(document).on("ready", function () {
     var menu = $(".hamburger-menu");
 	menu.on('click', function() {
         $(this).toggleClass('hamburger-menu--open');
+        $('.popup').fadeOut(350);
         $('nav').toggleClass('nav--open');
 	});
 
