@@ -28,7 +28,7 @@ $(document).on("ready", function () {
             name: parent.data('name'),
             lastname: parent.data('lastname'),
             age: parent.data('age'),
-            image: parent.data('image') ? parent.data('image') : parent.data('gender') + '.svg'
+            image: parent.data('image') ? 'clients/' + parent.data('image') : parent.data('gender') + '.svg'
         }
         var user_completename = popup_user.name + ' ' + popup_user.lastname;
         // console.log(popup_user);
