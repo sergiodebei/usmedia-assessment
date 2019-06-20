@@ -23,8 +23,30 @@ $(document).on("ready", function () {
     // Click on user function
     $('body').on('click', '.sheet__user__icon', function (e) {
         e.stopPropagation();
-        console.log("user click");
+        var parent = $(this).parent();
+        var popup_user = {
+            name: parent.data('name'),
+            lastname: parent.data('lastname'),
+            age: parent.data('age'),
+            image: parent.data('image') ? parent.data('image') : parent.data('gender') + '.svg'
+        }
+        var user_completename = popup_user.name + ' ' + popup_user.lastname;
+        // console.log(popup_user);
+        $('.popup')
+            .find('.popup__user__image img')
+            .attr('src', './assets/img/' + popup_user.image)
+            .attr('alt', user_completename);
+
+        $('.popup').find('.popup__user__name').html(user_completename);
+        $('.popup').find('.popup__user__age__value').html(popup_user.age);
+        $('.popup').fadeIn(350);
+
     });
+
+    $('.popup__close').on('click', function(e) {
+        $('.popup').fadeOut(350);
+		e.preventDefault();
+	});
 
     function updateCounter(){
         var counter_people = $('.sheet__user').length;
@@ -36,7 +58,6 @@ $(document).on("ready", function () {
 
     // Toggle sheet user function
     $('body').on('click', '.sheet__user', function () {
-        console.log("sheet click");
         $(this).toggleClass('sheet__user--present');
         updateCounter();
     });
@@ -70,7 +91,7 @@ $(document).on("ready", function () {
                 }
 
                 var content = '' +
-                    '<div class="sheet__user' + user_present + user_warning + user_warning_tooltip + '" id=user_' + user.userId + '>' +
+                    '<div class="sheet__user' + user_present + user_warning + user_warning_tooltip + '" id=user_' + user.userId + ' data-name="' + user.name + '"' + 'data-lastname="' + user.lastname + '"' + 'data-age="' + user.age + '"' + 'data-balance="' + user.balance + '"' + 'data-image="' + user.image + '"' + 'data-gender="' + user.gender + '">' +
                         '<div class="sheet__user__info">' +
                             '<div class="sheet__user__tick">' +
                                 '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24.36"><path d="M32,6.36,29.45,3.82,10.18,23.09,2.54,15.45,0,18,10.18,28.18Z" transform="translate(0 -3.82)"/></svg>' +
